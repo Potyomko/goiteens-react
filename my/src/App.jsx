@@ -5,15 +5,23 @@
 // import { Container } from './components/GalleryItem/Container'
 // import { Recipe } from './Recipe/Recipe'
 // import recipe from './recipies.json'
-import ColorPicker  from './components/ColorPicker/ColorPicker';
-import MyColorPicker from './components/ColorPicker/ColorPickerData';
-import { Container } from './components/Container/Container';
-
+// import ColorPicker  from './components/ColorPicker/ColorPicker';
+// import MyColorPicker from './components/ColorPicker/ColorPickerData';
+// import { Container } from './components/Container/Container';
+import { Counter } from "./components/Counter/Counter";
+import { GlobalStyle } from './Global.styled';
+import { DropDown } from "./components/DropDown/DropDown";
     
 export const App = () => {
     return (
-        <Container>
-            <ColorPicker options = {MyColorPicker}/>
-        </Container>    
+        <>
+            <DropDown/>
+            <GlobalStyle/>
+        </>     
   )
 }
+
+{/* <Container>
+    <ColorPicker options = {MyColorPicker}/>
+</Container>   */}
+{/* <Counter initialValue={0} /> */}

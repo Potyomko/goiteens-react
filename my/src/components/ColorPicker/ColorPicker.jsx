@@ -1,14 +1,24 @@
-import s from './ColorPicker.module.css'
-function ColorPicker({options}) {
-    return (
-        <div className={s.container}>
-            <h2 className={s.title}>Color Picker</h2>
+// import s from './ColorPicker.module.css'
+import { Component } from "react";
+import { ColorContainer } from "./ColorPicker.styled";
+import { ColorSpan } from "./ColorPicker.styled";
+import { ColorTitle } from "./ColorPicker.styled";
+
+export class ColorPicker extends Component{
+    state = {
+        currentOptionIdx: 0,
+    }
+    render() {
+        return (
+        <ColorContainer>
+            <ColorTitle>Color Picker</ColorTitle>
             <div>
-                {options.map(option => {
-                    return <span  className={s.option} key = {option.label} style={{backgroundColor: option.color}}>{option.label}</span>
+                {this.props.options.map((option, idx) => {
+                    return <ColorSpan key = {option.label} backgroundColor = {option.color}>{option.label}</ColorSpan>
                 })}
             </div>
-        </div>
+        </ColorContainer>
     )
+    }
 }
 export default ColorPicker;
