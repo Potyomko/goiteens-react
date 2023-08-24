@@ -11,11 +11,12 @@
 import { Counter } from "./components/Counter/Counter";
 import { GlobalStyle } from './Global.styled';
 import { DropDown } from "./components/DropDown/DropDown";
+import { ColorChanger } from './components/ColorChanger/ColorChanger';
     
 export const App = () => {
     return (
         <>
-            <DropDown/>
+            <ColorChanger/>
             <GlobalStyle/>
         </>     
   )
