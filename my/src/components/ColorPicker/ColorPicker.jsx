@@ -8,17 +8,28 @@ export class ColorPicker extends Component{
     state = {
         currentOptionIdx: 0,
     }
+
+    handlerActive = (idx) => {
+        this.setState({
+            currentOptionIdx: idx,
+        })
+    }
     render() {
         return (
         <ColorContainer>
             <ColorTitle>Color Picker</ColorTitle>
             <div>
                 {this.props.options.map((option, idx) => {
-                    return <ColorSpan key = {option.label} backgroundColor = {option.color}>{option.label}</ColorSpan>
-                })}
+                    return <ColorSpan
+                            key={option.label}
+                            onClick={()=>{this.handlerActive(idx)}} 
+                            backgroundColor={option.color}
+                            currentIdx={this.state.currentOptionIdx}
+                            idx={idx}
+                            >{ option.label }</ColorSpan>
+                            })}
             </div>
         </ColorContainer>
-    )
-    }
+    )}
 }
 export default ColorPicker;

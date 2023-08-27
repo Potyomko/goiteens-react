@@ -16,8 +16,9 @@ export const ColorSpan = styled.button`
   border: none;
   background-color: ${({backgroundColor})=>backgroundColor};
   transition: transform 250ms linear;
+  border: ${({currentIdx, idx})=>idx === currentIdx ? '3px solid black' : 'none'}
 
   &:hover{
-    transform: translateY(-50%)
+    transform: scale(1.1);
   }
 `

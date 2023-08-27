@@ -8,21 +8,22 @@
 // import ColorPicker  from './components/ColorPicker/ColorPicker';
 // import MyColorPicker from './components/ColorPicker/ColorPickerData';
 // import { Container } from './components/Container/Container';
-import { Counter } from "./components/Counter/Counter";
+// import { Counter } from "./components/Counter/Counter";
 import { GlobalStyle } from './Global.styled';
-import { DropDown } from "./components/DropDown/DropDown";
-import { ColorChanger } from './components/ColorChanger/ColorChanger';
+// import { DropDown } from "./components/DropDown/DropDown";
+// import { ColorChanger } from './components/ColorChanger/ColorChanger';
+// import { ColorPicker } from './components/ColorPicker/ColorPicker';
+import TodoList from './components/TodoList/TodoList';
     
 export const App = () => {
     return (
         <>
-            <ColorChanger/>
+            <TodoList/>
+            
             <GlobalStyle/>
         </>     
   )
 }
-
-{/* <Container>
-    <ColorPicker options = {MyColorPicker}/>
-</Container>   */}
-{/* <Counter initialValue={0} /> */}
+// {/* <Container>
+//                 <ColorPicker options = {MyColorPicker}/>
+//             </Container> */}
