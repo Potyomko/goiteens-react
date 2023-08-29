@@ -1,29 +1,26 @@
-// import { Header } from "./Header/Header"
-// import { Footer } from "./Footer/Footer"
-// import painting from './painting.json'
-// import { GalleryList } from './components/GalleryItem/Gallery'
-// import { Container } from './components/GalleryItem/Container'
-// import { Recipe } from './Recipe/Recipe'
-// import recipe from './recipies.json'
-// import ColorPicker  from './components/ColorPicker/ColorPicker';
-// import MyColorPicker from './components/ColorPicker/ColorPickerData';
-// import { Container } from './components/Container/Container';
-// import { Counter } from "./components/Counter/Counter";
 import { GlobalStyle } from './Global.styled';
-// import { DropDown } from "./components/DropDown/DropDown";
-// import { ColorChanger } from './components/ColorChanger/ColorChanger';
-// import { ColorPicker } from './components/ColorPicker/ColorPicker';
-import TodoList from './components/TodoList/TodoList';
+import stickers from './stickers.json';
+import { StickersList } from './components/Stickers/StickersList';
+import { Component } from 'react';
     
-export const App = () => {
-    return (
-        <>
-            <TodoList/>
-            
-            <GlobalStyle/>
-        </>     
-  )
+export class App extends Component{
+    state = {
+        stickerLable: null
+    }
+    labelHandler = label => {
+        this.setState({stickerLable:label})
+    }
+    render() {
+        const { stickerLable } = this.state;
+        return (
+            <>
+                {stickerLable && <h1>{stickerLable}</h1> }
+                <StickersList
+                stickers={stickers}
+                onGetLabel={this.labelHandler}
+                />
+                <GlobalStyle />
+            </>
+        )
+    }
 }
-// {/* <Container>
-//                 <ColorPicker options = {MyColorPicker}/>
-//             </Container> */}
