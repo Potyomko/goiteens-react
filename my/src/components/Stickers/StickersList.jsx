@@ -1,17 +1,19 @@
 import { Sticker } from "./Sticker";
+import { StickerList } from './Stickers.styled';
+import { StickerCard } from "./Stickers.styled";
 
 export function StickersList({stickers, onGetLabel}) {
     return (
-        <ul>
+        <StickerList>
             {stickers.map(({img, label}) => {
-                return  <li>
+                return  <StickerCard>
                             <Sticker
                             img={img}
                             label={label}
                             onGetLabel={onGetLabel}
                             />
-                        </li>
+                        </StickerCard>
             })}
-        </ul>
+        </StickerList>
     )
 }
