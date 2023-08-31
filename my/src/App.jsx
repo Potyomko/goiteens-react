@@ -1,27 +1,40 @@
-import { GlobalStyle } from './Global.styled';
-import stickers from './stickers.json';
-import { StickersList } from './components/Stickers/StickersList';
 import { Component } from 'react';
-import { StickerTitle } from './components/Stickers/Stickers.styled';
+import { GlobalStyle } from './Global.styled';
+import { Form } from './components/Form/Form';
+// import stickers from './stickers.json';
+// import { StickersList } from './components/Stickers/StickersList';
+// import { StickerTitle } from './components/Stickers/Stickers.styled';
     
 export class App extends Component{
     state = {
-        stickerLable: null
+        formData: null
     }
-    labelHandler = label => {
-        this.setState({stickerLable:label})
+    getFormData = (data) => {
+        console.log(data);
+        this.setState({formData: data})
     }
     render() {
-        const { stickerLable } = this.state;
         return (
             <>
-                {stickerLable && <StickerTitle>{stickerLable}</StickerTitle> }
-                <StickersList
-                stickers={stickers}
-                onGetLabel={this.labelHandler}
-                />
+                <Form onChange={this.getFormData} />
                 <GlobalStyle />
             </>
         )
     }
-}
+    
+    }
+    // state = {
+    //     stickerLable: null
+    // }
+    // labelHandler = label => {
+    //     this.setState({stickerLable:label})
+    // }
+    // render() {
+    //     const { stickerLable } = this.state;
+    //     return (
+    //         <>
+    //             {stickerLable && <StickerTitle>{stickerLable}</StickerTitle> }
+    //             <StickersList
+    //             stickers={stickers}
+    //             onGetLabel={this.labelHandler}
+    //             />
