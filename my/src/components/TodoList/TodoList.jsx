@@ -1,14 +1,22 @@
 import React from 'react';
-import { List, Item, Text, Button } from './TodoList.styled.jsx';
-import { TodoListDone } from './TodoListDone.jsx';
+import {List, Item, Text, Button} from './TodoList.styled';
 
-const TodoList = ({ todos, onDeleteTodo }) => (
-  <List >
-    {todos.map(({ id, text }) => (
-        <Item key={id}>
-            <TodoListDone/>
-            <Text>{text}</Text>
-            <Button onClick={() => onDeleteTodo(id)}>Delete</Button>
+const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
+  <List>
+    {todos.map(({ id, text, completed }) => (
+      <Item key={id}>
+        <input
+          type="checkbox"
+          checked={completed}
+          onChange={() => onToggleCompleted(id)}
+        />
+        <Text completed={completed}>{text}</Text>
+        <Button
+          type='button'
+          onClick={() => onDeleteTodo(id)}
+        >
+          Delete
+          </Button>
       </Item>
     ))}
   </List>
