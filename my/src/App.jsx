@@ -1,4 +1,4 @@
-import { Component } from "react"
+// import { Component } from "react"
 // import { Timer } from "./components/Timer/Timer"
 // import { TimerButton } from "./components/Timer/TimerButton"
 // import { Value } from "./Value"
@@ -12,25 +12,21 @@ import 'react-toastify/dist/ReactToastify.css';
 // import { PokemonInfo } from "./components/Pokemon/PokemonInfo";
 import { Clock } from "./components/Clock/Clock";
 
-export class App extends Component {
-  
-  state= {
-    pokemon: null,
-  }
-
- getPokemonName=(name)=>{
-  this.setState({pokemon: name})
- }
-
-  render(){
+const containerStyles = {
+  maxWidth: 1170,
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  paddingLeft: 15,
+  paddingRight: 15,
+};
+export default function App() {
     return (
-      <>
-      <Clock/>
-      <GlobalStyle/>
-      </>
+      <div style={containerStyles}>
+        <Clock/>
+        <GlobalStyle/>
+      </div>
     );
   }
-};
 // export class App extends Component {
  
 // state = {

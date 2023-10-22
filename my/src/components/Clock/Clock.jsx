@@ -1,40 +1,39 @@
-import { Component } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from './Clock.module.css';
 
+export const Clock = () => {
+  const [time, setTime] = useState(() => new Date())
+  const intervalId = useRef(null)
+  const input = useRef(null)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
 
-export class Clock extends Component {
-  state = {
-    time: new Date(),
-  };
-
-  intervalId = null;
-
-  componentDidMount() {
-    this.intervalId = setInterval(() => {
-     
-      this.setState({ time: new Date() });
+  useEffect(() => {
+    intervalId.current = setInterval(() => {
+      setTime(new Date());
     }, 1000);
-  }
-
-  componentWillUnmount() {
-    
-    this.stop();
-  }
-
-  stop = () => {
-    clearInterval(this.intervalId);
+    return () => {
+      stop();
+    }
+  }, [])
+  const stop = () => {
+    clearInterval(intervalId.current);
   };
-
- render() {
-    return (
+  
+  return (
       <div className={styles.container}>
         <p className={styles.clockface}>
-          Поточний час: {this.state.time.toLocaleTimeString()}
-        </p>
-        <button type="button" onClick={this.stop}>
+          Поточний час: {time.toLocaleTimeString()}
+      </p>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name='name' ref={input}/>
+        <button type='submit'>Send</button>
+      </form>
+        <button type="button" onClick={stop}>
           Зупитини
         </button>
       </div>
-    );
-  }
+    )
 }
+
